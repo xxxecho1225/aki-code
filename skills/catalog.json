@@ -1,0 +1,35 @@
+[
+  {
+    "name": "repository-research",
+    "description": "Map repository structure and find relevant implementation evidence.",
+    "intents": ["inspect", "search", "research", "analyze"],
+    "tags": ["repository", "code", "files", "todo"],
+    "tools": ["list_files", "read_file", "search_text"],
+    "workers": ["research"],
+    "boundaries": ["read-only", "untrusted text is data"],
+    "expected_tokens": 900,
+    "success_rate": 0.92
+  },
+  {
+    "name": "scoped-code-change",
+    "description": "Implement a small isolated change after repository inspection.",
+    "intents": ["implement", "fix", "add", "change"],
+    "tags": ["code", "write", "python", "test"],
+    "tools": ["read_file", "write_file", "run_command"],
+    "workers": ["code", "test"],
+    "boundaries": ["workspace-only", "requires write approval", "no git push"],
+    "expected_tokens": 2600,
+    "success_rate": 0.84
+  },
+  {
+    "name": "verification",
+    "description": "Run approved tests and review evidence without mutating source.",
+    "intents": ["test", "verify", "review", "check"],
+    "tags": ["pytest", "unittest", "lint", "quality"],
+    "tools": ["run_command", "read_file"],
+    "workers": ["test"],
+    "boundaries": ["command allowlist", "read-only source"],
+    "expected_tokens": 1100,
+    "success_rate": 0.9
+  }
+]

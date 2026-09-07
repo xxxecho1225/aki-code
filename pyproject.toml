@@ -1,0 +1,12 @@
+[project]
+name = "aki-agent"
+version = "0.1.0"
+description = "A centralized multi-agent coding runtime with skill routing and safe tool use."
+requires-python = ">=3.9"
+
+[project.scripts]
+aki = "aki_agent.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
