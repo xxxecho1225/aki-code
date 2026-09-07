@@ -1,0 +1,4 @@
+# Agent 运行时记忆、工件和本地 Python 缓存均不应进入版本控制。
+.aki/
+__pycache__/
+*.py[cod]

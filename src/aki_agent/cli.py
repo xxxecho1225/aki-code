@@ -7,6 +7,7 @@ from .orchestrator import Orchestrator
 
 
 def main() -> None:
+    # 命令行只负责收集最小输入；任务规划与权限判断全部留在运行时内部。
     parser = argparse.ArgumentParser(description="Run the Aki Agent centralized coding loop.")
     parser.add_argument("task")
     parser.add_argument("--workspace", default=".")
